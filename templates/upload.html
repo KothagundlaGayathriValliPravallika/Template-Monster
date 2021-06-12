@@ -1,0 +1,49 @@
+<html>
+<title>APP GALLERY</title>
+<style type="text/css">
+body
+{
+	background-image: url("static/background.jpg");
+	background-size: cover;
+ 	background-repeat: no-repeat;
+ 	margin-top: 250px;
+}
+h2
+{
+	color: black;
+	font-size: 30px;
+	font-family: "Times New Roman";
+}
+</style>
+<body>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<center>
+<form method="post" action="/upload" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<h2>Upload Images</h2>
+			&emsp;&emsp;&emsp;&emsp;&nbsp;
+			<input type="file" name="files[]" multiple="true" autocomplete="off" accept=".jpg,.jpeg,.png,.gif" required>
+			<h2>Choose Grid Size</h2>
+			<select name="m"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>
+			&nbsp;&nbsp;<label style="color: black;">x</label>&nbsp;&nbsp;
+			<select name="n"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit">
+	</p>
+</form>
+</center>
+</body>
+</html>
